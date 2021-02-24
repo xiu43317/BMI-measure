@@ -66,13 +66,16 @@ function ideal_bmi(bmi) {
             btnBorder.style.borderColor = "#31BAF9";
             btnTextColor.style.color = "#31BAF9";
             turnLogo.style.backgroundColor = "#31BAF9";
-            return ["過輕", "#31BAF9"];
+            return ["過輕&nbsp;&nbsp;&nbsp;&nbsp;", "#31BAF9"];
         case (bmi >= 18.50 && bmi < 24.00):
             bmiBtn.style.display = "flex";
             result.style.display = "none";
             title.innerText = "理想";
             bmiNumber.innerText = bmi.toFixed(2);
-            return ["理想", "#86D73E"];
+            btnBorder.style.borderColor = "#86D73E";
+            btnTextColor.style.color = "#86D73E";
+            turnLogo.style.backgroundColor = "#86D73E";
+            return ["理想&nbsp;&nbsp;&nbsp;&nbsp;", "#86D73E"];
         case (bmi >= 24.00 && bmi < 27.00):
             bmiBtn.style.display = "flex";
             result.style.display = "none";
@@ -81,7 +84,7 @@ function ideal_bmi(bmi) {
             btnBorder.style.borderColor = "#FF982D";
             btnTextColor.style.color = "#FF982D";
             turnLogo.style.backgroundColor = "#FF982D";
-            return ["過重", "#FF982D"];
+            return ["過重&nbsp;&nbsp;&nbsp;&nbsp;", "#FF982D"];
         case (bmi >= 27 && bmi < 30.00):
             bmiBtn.style.display = "flex";
             result.style.display = "none";
@@ -150,6 +153,11 @@ function update() {
         show_data(i);
     }
     document.querySelector('.record').innerHTML = str;
+    if(list.length != 0){
+        document.querySelector('.clear').style.display = "block";
+    }else{
+        document.querySelector('.clear').style.display = "none";
+    }
 }
 
 // 刪除資料
@@ -161,6 +169,11 @@ function remove(e) {
 }
 document.querySelector('.record').addEventListener('click', remove, false);
 
+// 清除全部資料
+document.querySelector('.clear').addEventListener('click',function(){
+    list = [];
+    update();
+})
 //關閉網頁前儲存事項
 function goodBye(){
     localData = JSON.stringify(list);
