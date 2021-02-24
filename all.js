@@ -143,10 +143,10 @@ function show_data(order) {
     str += `<a href="#" data-num="${order}">刪除</a>`;
     str += `</div>`;
 }
-// 更新資料
+// 更新資料 (顛倒顯示，越新的越上面)
 function update() {
     str = "";
-    for (let i = 0; i < list.length; i++) {
+    for (let i = (list.length-1); i >= 0; i--) {
         show_data(i);
     }
     document.querySelector('.record').innerHTML = str;
