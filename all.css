@@ -1,0 +1,209 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.wrap{
+    width: 1024px;
+    margin: 0 auto;
+}
+.banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: #424242;
+}
+.banner img{
+    margin-right: 97px;
+}
+.banner .info{
+    color: #FFD366;
+}
+.banner input{
+    font-size: 24px;
+    padding: 4px 0 4px 16px;
+    border-radius: 10px;
+    border: #FFD366 2px solid;
+    outline: none;
+    display: block;
+    margin-bottom: 23px;
+    background: rgba(255,255,255,0.18);
+    box-sizing: border-box;
+    color: #fff;
+}
+.banner label{
+    display: block;
+    margin-bottom: 7px;
+}
+.result{
+    margin-left: 57px;
+}
+.initial{
+    width: 120px;
+    height: 120px;
+    background-color: #FFD366;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 24px;
+}
+.initial:hover{
+    cursor: pointer;
+    box-shadow: 0 1px 6px 3px rgba(255,195,49,0.64);
+}
+.initial:active{
+    background: #DEA921;
+}
+/* 理想體重 */
+.ideal{
+    display: flex;
+    align-items: center;
+    color: #86D73E;
+    display:none;
+}
+.ideal-circle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border: 6px solid #86D73E;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+.ideal p{
+    font-size: 32px;
+    margin-left: 18px;
+}
+.ideal-circle{
+    position: relative;
+}
+.ideal-circle span{
+    font-size: 32px;
+}
+.ideal-circle small{
+    font-size: 14px;
+}
+/* 轉圈圈 */
+.turn-circle{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #86D73E;
+    border-radius: 50%;
+    border: 3px solid #424242;
+    position: absolute;
+    right: -6px;
+    bottom: 6px;
+    cursor: pointer;
+}
+.turn-circle img{
+    margin: 0;
+}
+
+/* 顯示欄 */
+.list{
+    padding: 48px 0;
+    background-color: #f5f5f5;
+}
+.list h2{
+    text-align: center;
+    margin-bottom: 36px;
+    font-size: 24px;
+}
+.list h3{
+    margin-left: -20px;
+    font-size: 20px;
+}
+/* 顯示方塊 */
+.data{
+    width: 624px;
+    height: 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding-right: 11px;
+    margin-bottom: 16px;
+}
+.data .color-bar{
+    width: 7px;
+    height: 100%;
+    background: #86D73F;
+    box-shadow: 2px 0 3px 0 rgba(133,215,63,0.29);
+}
+.data small{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.data small>span{
+    font-size: 20px;
+    margin-left: 7px;
+}
+.data a{
+    text-decoration: none;
+}
+/* footer */
+.footer{
+    padding: 17px 0;
+    background-color: #FFD366;
+    text-align: center;
+}
+.footer img{
+    filter: brightness(0);
+    width: 56px;
+    height: 56px;
+}
