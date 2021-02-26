@@ -1,19 +1,19 @@
 // 看結果
-let result = document.querySelector('.initial');
+const result = document.querySelector('.initial');
 // 擷取input裡面的值
-let weight = document.getElementById("weight");
-let tall = document.getElementById("tall");
-let bmiBtn = document.querySelector('.ideal');
+const weight = document.getElementById("weight");
+const tall = document.getElementById("tall");
+const bmiBtn = document.querySelector('.ideal');
 // 改變裡面標題文字
-let title = document.querySelector('p');
+const title = document.querySelector('p');
 // 改變bmi數字
-let bmiNumber = document.querySelector('.ideal-circle span');
+const bmiNumber = document.querySelector('.ideal-circle span');
 // 按鈕圓周顏色改變
-let btnBorder = document.querySelector('.ideal-circle');
+const btnBorder = document.querySelector('.ideal-circle');
 // 按鈕裡面文字顏色改變
-let btnTextColor = document.querySelector('.ideal');
+const btnTextColor = document.querySelector('.ideal');
 // 轉圈圈圖示顏色
-let turnLogo = document.querySelector('.turn-circle');
+const turnLogo = document.querySelector('.turn-circle');
 // bmi值
 let bmi;
 // 用來儲存資料的陣列
@@ -41,7 +41,7 @@ result.addEventListener('click', function (e) {
     }
     bmi = wValue / (tValue * tValue / 10000);
     ideal_bmi(bmi);
-    //console.log(bmi.toFixed(2));
+    change_btn_color(bmi);
     create_object(bmi);
     //console.log(list);
     update();
@@ -59,62 +59,33 @@ turnLogo.addEventListener('click', function () {
 function ideal_bmi(bmi) {
     switch (true) {
         case (bmi < 18.50):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "過輕";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#31BAF9";
-            btnTextColor.style.color = "#31BAF9";
-            turnLogo.style.backgroundColor = "#31BAF9";
-            return ["過輕&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "#31BAF9"];
+            return ["過輕", "#31BAF9"];
         case (bmi >= 18.50 && bmi < 24.00):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "理想";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#86D73E";
-            btnTextColor.style.color = "#86D73E";
-            turnLogo.style.backgroundColor = "#86D73E";
-            return ["理想&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "#86D73E"];
+            return ["理想", "#86D73E"];
         case (bmi >= 24.00 && bmi < 27.00):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "過重";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#FF982D";
-            btnTextColor.style.color = "#FF982D";
-            turnLogo.style.backgroundColor = "#FF982D";
-            return ["過重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", "#FF982D"];
+            return ["過重", "#FF982D"];
         case (bmi >= 27 && bmi < 30.00):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "輕度肥胖";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#FF6C02";
-            btnTextColor.style.color = "#FF6C02";
-            turnLogo.style.backgroundColor = "#FF6C02";
             return ["輕度肥胖", "#FF6C02"];
         case (bmi >= 30.00 && bmi < 35.00):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "中度肥胖";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#FF6C02";
-            btnTextColor.style.color = "#FF6C02";
-            turnLogo.style.backgroundColor = "#FF6C02";
             return ["中度肥胖", "#FF6C02"];
         case (bmi >= 35):
-            bmiBtn.style.display = "flex";
-            result.style.display = "none";
-            title.innerText = "重度肥胖";
-            bmiNumber.innerText = bmi.toFixed(2);
-            btnBorder.style.borderColor = "#FF1200 ";
-            btnTextColor.style.color = "#FF1200 ";
-            turnLogo.style.backgroundColor = "#FF1200";
             return ["重度肥胖", "#FF1200"];
         default:
             return "輸入資料不正確";
     }
+}
+// 改變按鈕顏色
+function change_btn_color(bmi){
+
+    let content = ideal_bmi(bmi);
+
+    bmiBtn.style.display = "flex";
+    result.style.display = "none";
+    title.innerText = content[0];
+    bmiNumber.innerText = bmi.toFixed(2);
+    btnBorder.style.borderColor = content[1];
+    btnTextColor.style.color = content[1];
+    turnLogo.style.backgroundColor = content[1];
 }
 
 // 建立物件

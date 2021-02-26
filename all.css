@@ -167,8 +167,8 @@ table {
     font-size: 24px;
 }
 .list h3{
-    margin-left: -20px;
     font-size: 20px;
+    width: 80px;
 }
 /* 顯示方塊 */
 .data{
@@ -193,6 +193,13 @@ table {
     display: flex;
     align-items: center;
     font-size: 12px;
+    width: 100px;
+}
+.data small:last-of-type{
+    width: auto;
+}
+.data small:first-of-type{
+    width: 80px;
 }
 .data small span{
     font-size: 20px;
