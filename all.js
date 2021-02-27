@@ -35,16 +35,31 @@ result.addEventListener('click', function (e) {
     e.preventDefault();
     let tValue = tall.value;
     let wValue = weight.value;
-    if (tValue == "" || wValue == "") {
-        alert('兩欄位皆不得為空 ');
+    let alertTall = document.querySelector('.banner small:first-of-type');
+    let alertWeight = document.querySelector('.banner small:last-of-type');
+    if (!tValue && wValue) {
+        alertTall.style.opacity = 1;
+        alertWeight.style.opacity = 0;
         return;
+    } else if (!wValue && tValue) {
+        alertWeight.style.opacity = 1;
+        alertTall.style.opacity = 0;
+        return;
+    } else if( !wValue && !tValue){
+        alertTall.style.opacity = 1;
+        alertWeight.style.opacity = 1;
+        return;
+    } else {
+        alertTall.style.opacity = 0;
+        alertWeight.style.opacity = 0;
+        bmi = wValue / (tValue * tValue / 10000);
+        ideal_bmi(bmi);
+        change_btn_color(bmi);
+        create_object(bmi);
+        //console.log(list);
+        update();
     }
-    bmi = wValue / (tValue * tValue / 10000);
-    ideal_bmi(bmi);
-    change_btn_color(bmi);
-    create_object(bmi);
-    //console.log(list);
-    update();
+
 });
 
 // 重新輸入
@@ -75,7 +90,7 @@ function ideal_bmi(bmi) {
     }
 }
 // 改變按鈕顏色
-function change_btn_color(bmi){
+function change_btn_color(bmi) {
 
     let content = ideal_bmi(bmi);
 
@@ -120,13 +135,13 @@ function show_data(order) {
 // 更新資料 (顛倒顯示，越新的越上面)
 function update() {
     str = "";
-    for (let i = (list.length-1); i >= 0; i--) {
+    for (let i = (list.length - 1); i >= 0; i--) {
         show_data(i);
     }
     document.querySelector('.record').innerHTML = str;
-    if(list.length != 0){
+    if (list.length != 0) {
         document.querySelector('.clear').style.display = "block";
-    }else{
+    } else {
         document.querySelector('.clear').style.display = "none";
     }
 }
@@ -141,15 +156,15 @@ function remove(e) {
 document.querySelector('.record').addEventListener('click', remove, false);
 
 // 清除全部資料
-document.querySelector('.clear').addEventListener('click',function(){
+document.querySelector('.clear').addEventListener('click', function () {
     list = [];
     update();
 })
 //關閉網頁前儲存事項
-function goodBye(){
+function goodBye() {
     localData = JSON.stringify(list);
-    return localStorage.setItem("myList",localData);
+    return localStorage.setItem("myList", localData);
 }
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
     goodBye();
 }
