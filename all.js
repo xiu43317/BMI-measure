@@ -59,6 +59,8 @@ result.addEventListener('click', function (e) {
         create_object(bmi);
         tall.disabled = true;
         weight.disabled = true;
+        tall.style.color = "#4a4a4a";
+        weight.style.color = "#4a4a4a";
         update();
     }
 
@@ -84,6 +86,8 @@ turnLogo.addEventListener('click', function () {
     result.style.display = "flex";
     tall.disabled = false;
     weight.disabled = false;
+    tall.style.color = "#fff";
+    weight.style.color = "#fff";
 })
 
 // 顯示bmi範圍 
