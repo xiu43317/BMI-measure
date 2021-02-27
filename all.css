@@ -75,7 +75,7 @@ table {
     box-sizing: border-box;
     color: #fff;
 }
-.banner small{
+.info > small{
     color: red;
     font-size: 14px;
     margin: 0;

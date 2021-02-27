@@ -14,6 +14,9 @@ const btnBorder = document.querySelector('.ideal-circle');
 const btnTextColor = document.querySelector('.ideal');
 // 轉圈圈圖示顏色
 const turnLogo = document.querySelector('.turn-circle');
+// 顯示輸入欄警告
+const alertTall = document.querySelector('.info > small:first-of-type');
+const alertWeight = document.querySelector('.info > small:last-of-type');
 // bmi值
 let bmi;
 // 用來儲存資料的陣列
@@ -35,8 +38,6 @@ result.addEventListener('click', function (e) {
     e.preventDefault();
     let tValue = tall.value;
     let wValue = weight.value;
-    let alertTall = document.querySelector('.banner small:first-of-type');
-    let alertWeight = document.querySelector('.banner small:last-of-type');
     if (!tValue && wValue) {
         alertTall.style.opacity = 1;
         alertWeight.style.opacity = 0;
@@ -56,11 +57,24 @@ result.addEventListener('click', function (e) {
         ideal_bmi(bmi);
         change_btn_color(bmi);
         create_object(bmi);
-        //console.log(list);
+        tall.disabled = true;
+        weight.disabled = true;
         update();
     }
 
 });
+
+// 身高input裡面未輸入則顯示紅字
+tall.addEventListener('keyup',function(e){
+    if(!e.target.value) alertTall.style.opacity = 1;
+    else alertTall.style.opacity = 0;
+})
+
+// 體重input裡面未輸入顯示紅字
+weight.addEventListener('keyup',function(e){
+    if(!e.target.value) alertWeight.style.opacity = 1;
+    else alertWeight.style.opacity = 0;
+})
 
 // 重新輸入
 turnLogo.addEventListener('click', function () {
@@ -68,6 +82,8 @@ turnLogo.addEventListener('click', function () {
     weight.value = "";
     bmiBtn.style.display = "none";
     result.style.display = "flex";
+    tall.disabled = false;
+    weight.disabled = false;
 })
 
 // 顯示bmi範圍 
