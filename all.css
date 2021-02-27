@@ -47,6 +47,15 @@ table {
 	border-spacing: 0;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(192, 192, 192, 0.2) inset; /*淡淡的白*/
+    transition: background-color 5000s ease-in-out 0s; /*透明*/
+    -webkit-text-fill-color: #fff; /*字體顏色*/
+}
+
 .wrap{
     width: 1024px;
     margin: 0 auto;
